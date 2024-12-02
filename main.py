@@ -19,9 +19,12 @@ def main():
 
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
-    print (get_word_count(file_contents))
+    print ("--- Begin report of books/frankenstein.txt ---")
+    print (f"{get_word_count(file_contents)} words found in the document")
     char_count = get_char_count(file_contents)
     for char in sorted(char_count):
-        print(f"{char}: {char_count[char]}")
+        if char.isalpha():
+            print(f"The '{char}' was found {char_count[char]} times")
+    print ("--- End report ---")
 
 main()
