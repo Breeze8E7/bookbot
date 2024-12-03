@@ -22,10 +22,9 @@ def main():
     print ("--- Begin report of books/frankenstein.txt ---")
     print (f"{get_word_count(file_contents)} words found in the document")
     char_count = get_char_count(file_contents)
-    char_tuples = [(char, count) for char, count in char_count.items() if char.isalpha()]
-    char_tuples.sort(key=lambda x: x[1], reverse=True)
-    for char, count in char_tuples:
-        print(f"The '{char}' character was found {count} times")
+    for char in sorted(char_count):
+        if char.isalpha():
+            print(f"The '{char}' was found {char_count[char]} times")
     print ("--- End report ---")
 
 main()
